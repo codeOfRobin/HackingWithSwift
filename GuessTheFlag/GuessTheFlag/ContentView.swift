@@ -9,9 +9,14 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-		VStack(spacing: 20) {
-			Text("Hello World")
-			Text("This is inside a stack")
+		ZStack {
+			AngularGradient(gradient: Gradient(colors: [.red, .yellow, .green, .blue, .purple, .red]), center: .center)
+			Text("Your content")
+
+			Button("Tap me!") {
+				print("Button was tapped")
+			}
+
 		}
     }
 }
