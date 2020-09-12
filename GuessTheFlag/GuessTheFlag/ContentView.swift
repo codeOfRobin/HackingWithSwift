@@ -9,9 +9,20 @@ import SwiftUI
 
 struct ContentView: View {
 	@State private var showingAlert = false
-	var countries = ["Estonia", "France", "Germany", "Ireland", "Italy", "Nigeria", "Poland", "Russia", "Spain", "UK", "US"]
+	var countries = ["Estonia", "France", "Germany", "Ireland", "Italy", "Nigeria", "Poland", "Russia", "Spain", "UK", "US"].shuffled()
 	var correctAnswer = Int.random(in: 0...2)
+	@State private var showingScore = false
+	@State private var scoreTitle = ""
 
+	func flagTapped(_ number: Int) {
+		if number == correctAnswer {
+			scoreTitle = "Correct"
+		} else {
+			scoreTitle = "Wrong"
+		}
+
+		showingScore = true
+	}
 	
 	var body: some View {
 		ZStack {
